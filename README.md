@@ -44,6 +44,9 @@ Each goes in `.adds/koreader/plugins/`, from its latest release zip.
   Its three `2-*.lua` patches go in `.adds/koreader/patches/`.
   It writes progress into the Kobo's own database, so back up `.kobo/KoboReader.sqlite` first.
 
+- [Ink Away](https://github.com/EmirErtorer/ink-away.koplugin) is for writing with the pen: notebooks, drawings, and ink on any book that follows the text.
+  Palm rejection needs KOReader 2026.07 or newer. Use one pen plugin at a time.
+
 More fonts: the core set from [ebook-fonts](https://github.com/nicoverbruggen/ebook-fonts) (the `other-core-fonts` zip, not the `kobo` one) goes in `.adds/koreader/fonts/`.
 
 ## Settings to tap once
