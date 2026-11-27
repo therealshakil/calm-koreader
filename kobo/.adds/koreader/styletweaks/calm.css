@@ -1,0 +1,17 @@
+/* calm: one tick in Style tweaks turns this on or off.
+   Ragged-right text, a soft gap between paragraphs, quieter headings. */
+
+body, p, div, li {
+    text-align: left !important;
+}
+
+p {
+    text-indent: 0 !important;
+    margin-top: 0.55em !important;
+    margin-bottom: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal !important;
+    text-align: left !important;
+}
