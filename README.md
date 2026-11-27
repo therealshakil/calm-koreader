@@ -9,8 +9,8 @@ Nothing here replaces the Kobo software; both stay.
 The folder mirrors the Kobo's own drive, so installing is a copy.
 
 - `.adds/nm/koreader` adds a KOReader item to NickelMenu.
-- `.adds/koreader/settings.reader.lua` sets the calm starting points.
-- `.adds/koreader/fonts/` holds Atkinson Hyperlegible, calm's body face.
+- `.adds/koreader/settings.reader.lua` sets the starting points, close to the Kobo reader's own look.
+- `.adds/koreader/fonts/libron/` holds Libron, a book serif made for e-ink, used when a book has no fonts of its own.
 - `.adds/koreader/styletweaks/calm.css` is one optional tweak: ragged-right, soft paragraph gaps, quieter headings.
 
 ## Install
@@ -30,41 +30,42 @@ ExcludeSyncFolders=(\\.(?!kobo|adobe).+|([^.][^/]*/)+\\..+)
 
 6. Eject and unplug. The Kobo restarts once; KOReader then sits in the main menu.
 
-## The library: Project: Title
+## Plugins
 
-KOReader's own file browser shows calibre's author folders.
-[Project: Title](https://github.com/joshuacant/ProjectTitle) turns it into a bookshelf with covers.
-Each release is tied to one KOReader version, so check the release notes match before updating either.
+Each goes in `.adds/koreader/plugins/`, from its latest release zip.
 
-1. Download the release that matches the KOReader version on the Kobo.
-2. Copy its `projecttitle.koplugin` folder into `.adds/koreader/plugins/`.
-3. The settings here already switch off Cover Browser, which Project: Title needs.
-4. On the Kobo: top menu, the filing cabinet, the menu icon, then "Extract and cache book information", once, while charging.
+- [Bookshelf](https://github.com/AndyHazz/bookshelf.koplugin) is the library: shelves of covers, with the current book on top.
+  It needs Cover Browser on, and can't run alongside Project: Title or other library plugins.
+  Make a shelf from each collection to see the calibre shelves as cover shelves.
+- [bookends](https://github.com/AndyHazz/bookends.koplugin) lays out the lines above and below the page.
+- [appstore](https://github.com/omer-faruq/appstore.koplugin) installs and updates plugins on the Kobo itself.
+- [Menu customizer](https://github.com/JoeBumm/Koreader-Menu-customizer) hides menu items you don't use.
+- [kobo.koplugin](https://github.com/OGKevin/kobo.koplugin) keeps reading progress in step with the Kobo reader.
+  Its three `2-*.lua` patches go in `.adds/koreader/patches/`.
+  It writes progress into the Kobo's own database, so back up `.kobo/KoboReader.sqlite` first.
 
-Collections (the calibre shelves) sit under the top menu's filing cabinet.
+More fonts: the core set from [ebook-fonts](https://github.com/nicoverbruggen/ebook-fonts) (the `other-core-fonts` zip, not the `kobo` one) goes in `.adds/koreader/fonts/`.
 
 ## Settings to tap once
 
 These live in tables KOReader builds itself, so they're safer set by hand.
 
-- Status bar: tap the bottom bar until only one item shows, or long-press it and keep just "pages left in chapter". Turn off the clock and battery if they pull at you.
 - Screen, E-ink: switch on "avoid mandatory black flashes in UI".
-- Top menu, the gear, Taps and gestures: keep the page-turn buttons as they are; they work out of the box.
+- Physical buttons: match the page-turn direction to the Kobo reader's.
 - Book menu, Style tweaks: tick "calm" under user style tweaks if you like it.
 - Night reading: the warmth slider in the frontlight panel, rather than night mode, is gentler on colour e-ink.
 
 ## Books on both sides
 
 Every book on the Kobo shows up in both readers; they read the same files.
-What doesn't cross over is where you're up to, highlights, and calibre's shelves.
-Each reader keeps its own.
+The calibre skill's `koreader` mode makes KOReader follow calibre's shelves, and kobo.koplugin carries reading progress across.
+Highlights stay with the reader they were made in.
 
 ## Why USB, not wireless
 
 KOReader can take books from calibre over Wi-Fi, but calibre sends them as plain EPUB.
 Over USB, calibre sends KEPUB, which both readers handle well, and shelves arrive straight away.
 So USB is the one route here: the right format in both readers, and nothing listening on the network.
-The calibre skill's `koreader` command mirrors the shelves into KOReader after each sync.
 
 ## Undo
 
@@ -74,4 +75,4 @@ To remove NickelMenu too, create an empty file named `.adds/nm/uninstall` and re
 ## Licence
 
 MIT for this bundle.
-Atkinson Hyperlegible is the Braille Institute's, under the SIL Open Font License; its licence sits beside the font.
+Libron is Nico Verbruggen's, based on Newsreader, under the SIL Open Font License; its licence sits beside the font.

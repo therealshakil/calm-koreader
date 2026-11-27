@@ -1,24 +1,19 @@
--- calm starting settings for KOReader.
+-- calm starting settings for KOReader, set to read like the Kobo's own reader.
 -- Only a few keys; KOReader fills in the rest with its own defaults on first launch.
 -- Every one of these can be changed later from the menus.
 return {
-    -- Book text in calm's body face.
-    ["cre_font"] = "Atkinson Hyperlegible",
-    -- A little more air between lines than the default 100.
-    ["copt_line_spacing"] = 115,
-    -- Wider side margins for a calmer line length; a touch more top and bottom.
-    ["copt_h_page_margins"] = { [1] = 30, [2] = 30 },
-    ["copt_t_page_margin"] = 20,
-    ["copt_b_page_margin"] = 20,
+    -- Books use their own fonts, as the Kobo reader can; Libron is for books with none.
+    ["cre_font"] = "Libron",
+    ["copt_embedded_fonts"] = 1,
+    -- Line height 1.1, as in the Kobo reader.
+    ["copt_line_spacing"] = 110,
     -- Slightly heavier text: colour e-ink reads grey at the default weight.
     ["copt_font_base_weight"] = 0.5,
-    -- Use the chosen face, not the book's own embedded fonts.
-    ["copt_embedded_fonts"] = 0,
 
-    -- The library starts at the top of the Kobo's storage.
+    -- The library starts at the top of the Kobo's storage, on Bookshelf.
+    -- Bookshelf needs Cover Browser, so no plugins are disabled.
     ["home_dir"] = "/mnt/onboard",
-    -- Project: Title replaces Cover Browser; it won't load while Cover Browser is on.
-    ["plugins_disabled"] = { ["coverbrowser"] = true },
+    ["start_with"] = "bookshelf",
 
     -- Sleep screen: the book's cover, with one quiet line along the bottom.
     ["screensaver_type"] = "cover",
