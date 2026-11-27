@@ -30,6 +30,19 @@ ExcludeSyncFolders=(\\.(?!kobo|adobe).+|([^.][^/]*/)+\\..+)
 
 6. Eject and unplug. The Kobo restarts once; KOReader then sits in the main menu.
 
+## The library: Project: Title
+
+KOReader's own file browser shows calibre's author folders.
+[Project: Title](https://github.com/joshuacant/ProjectTitle) turns it into a bookshelf with covers.
+Each release is tied to one KOReader version, so check the release notes match before updating either.
+
+1. Download the release that matches the KOReader version on the Kobo.
+2. Copy its `projecttitle.koplugin` folder into `.adds/koreader/plugins/`.
+3. The settings here already switch off Cover Browser, which Project: Title needs.
+4. On the Kobo: top menu, the filing cabinet, the menu icon, then "Extract and cache book information", once, while charging.
+
+Collections (the calibre shelves) sit under the top menu's filing cabinet.
+
 ## Settings to tap once
 
 These live in tables KOReader builds itself, so they're safer set by hand.
