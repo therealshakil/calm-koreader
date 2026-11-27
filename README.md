@@ -46,6 +46,27 @@ Every book on the Kobo shows up in both readers; they read the same files.
 What doesn't cross over is where you're up to, highlights, and calibre's shelves.
 Each reader keeps its own.
 
+## Wireless from calibre
+
+calibre opens its wireless connection when it starts, on port 9090.
+That's under Connect/share, then Start wireless device connection, with a fixed port and autostart ticked.
+On a machine with a firewall, open that port, and the discovery port, to the home network only:
+
+```sh
+pkexec ufw allow from 192.168.100.0/24 to any port 9090 proto tcp
+pkexec ufw allow from 192.168.100.0/24 to any port 54982 proto udp
+```
+
+In KOReader, once:
+
+1. In the file browser, make a folder called `Wireless` at the top level, beside the book folders.
+2. Join the home Wi-Fi from the network menu.
+3. Tools, then calibre, then Connect. When it asks for an inbox, choose `Wireless`.
+
+After that, Connect is the whole job; calibre's Send to device sends straight to the Kobo.
+The Kobo's own reader sees those books too.
+They join their shelves, in both readers, after the next USB sync with calibre.
+
 ## Undo
 
 Delete `.adds/koreader` and `.adds/nm/koreader`.
