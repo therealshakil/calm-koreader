@@ -43,6 +43,9 @@ Each goes in `.adds/koreader/plugins/`, from its latest release zip.
 - [kobo.koplugin](https://github.com/OGKevin/kobo.koplugin) keeps reading progress in step with the Kobo reader.
   Its three `2-*.lua` patches go in `.adds/koreader/patches/`.
   It writes progress into the Kobo's own database, so back up `.kobo/KoboReader.sqlite` first.
+  Sync for calibre books (PR #223) is newer than release v0.4.1; until the next release, install from `main` the way its `package.sh` does.
+  In its sync behaviour: sync on, both directions, newer "Always sync", older "Never".
+  This bundle's `patches/2-kobo-sync-on-open-close.lua` runs that sync on KOReader start and on closing a book, so switching readers needs no tap.
 
 - [Ink Away](https://github.com/EmirErtorer/ink-away.koplugin) is for writing with the pen: notebooks, drawings, and ink on any book that follows the text.
   Palm rejection needs KOReader 2026.07 or newer. Use one pen plugin at a time.
@@ -62,7 +65,9 @@ These live in tables KOReader builds itself, so they're safer set by hand.
 
 Every book on the Kobo shows up in both readers; they read the same files.
 The calibre skill's `koreader` mode makes KOReader follow calibre's shelves, and kobo.koplugin carries reading progress across.
-Highlights stay with the reader they were made in.
+Your place travels as a chapter and a percentage, so it lands close, not always on the exact page.
+Reading time and highlights stay with the reader they were made in.
+In calibre, Kobo Utilities collects the Kobo reader's side, and [KOReader Sync](https://github.com/kyxap/koreader-calibre-plugin) collects KOReader's progress, status, dates and highlights, so nothing is lost even where it isn't shared.
 
 ## Why USB, not wireless
 
